@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="auto-complete.js"></script>
+<link rel="stylesheet" href="kokathaCSS.css">
+ <style>
+<link rel="stylesheet" href="kokathaCSS.css">
+      input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+
+      .container {
+        padding: 16px;
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+        $("form").on("submit", function(event) {
+          event.preventDefault();
+          var form_values = $(this).serializeArray();
+          var index_array = {};
+          $.map(form_values, function(n, i) {
+            index_array[n['name']] = n['value'];
+          });
+          const BASE_URL = "http://localhost:8000/api/health/new/apply/";
+          var settings = {
+            "url": BASE_URL,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+              "Content-Type": "application/json"
+            },
+            "data": JSON.stringify(index_array)
+          };
+          console.log(index_array);
+          $.ajax(settings).done(function(response) {
+            console.log(response);
+          });
+        })
+      })
+function validateForm() {
+  let x = document.forms["myForm"]["name"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+ function myFunction() {
+        window.location.href="Than-you.html";  
+      }
+
+
+    </script>
+  </head>
+  <body>
+    
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Kokatha test</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="https://kokatha.com.au/">Home</a></li>
+            <li><a href="https://kokatha.com.au/member-area/">Member area</a></li>
+        <li><a href="https://kokatha.com.au/contacts/">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div class="jumbotron text-center">
+      <h3>Kokatha Charitable Trust Health Application Form</h3>
+      <p>Please Enter Your details:</p>
+    </div>
+
+    <form name="myForm" onsubmit="myFunction()">
+
+      <div class="container">
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" id="name" name="name" placeholder="Full legal name" value="" required>
+        <br>
+        <label for="dob">Date Of Birth:</label>
+        <br>
+        <input type="date" id="dob" name="dob" placeholder="dd/mm/yy" required>
+        <br />
+        <br />
+        <label for="apply_for">Apply For</label>
+        <br />
+        <label for="apply_for">My Self</label>
+        <input type="checkbox" id="self" name="self">
+        <label for="apply_for">Child</label>
+        <input type="checkbox" id="child" name="child">
+        <br>
+        <br />
+        <label for="child_name">Child's Name</label>
+        <input type="text" id="child_name" name="child_name" placeholder="child name (optional)" value="">
+        <br>
+        <label for="address">Your Address</label>
+        <input type="text" id="address" onFocus="geolocate()" name="address" value="" placeholder="address" required>
+        <br>
+        <label for="postal">Postal address (if different from above)</label>
+        <input type="text" id="postal" name="postal" value="" placeholder="postal address" required>
+        <br>
+        <label for="email">E-mail address</label>
+        <input type="text" id="email" name="email" value="Email" required>
+        <br>
+        <label for="phone">Phone number</label>
+        <input type="text" id="phone" name="phone" value="phone" required>
+        <br>
+        <label for="member">Are you a member? (Tick if you are a Registered Member)</label>
+        <input type="checkbox" id="member" name="member" required>
+        <br>
+        <label for="apical">Apical</label>
+        <input type="text" id="apical" name="apical" value="apical" required>
+        <br>
+        <label for="common_holder">Are you a Common Law Holder? (Kokatha Person)</label>
+        <input type="checkbox" id="common_holder" name="common_holder" required>
+        <br>
+        <label for="more_info">If you are not a registered member, please provide us with more family details to assist staff:</label>
+        <input type="text" id="more_info" name="more_info" required>
+        <br>
+        <label for="">Financial</label>
+        <br />
+        <label for="amount">Amount Requested <i>Maximum of $1000.00 per financial year </i>
+        </label>
+        <input type="number" id="amount" name="amount" required>
+        <br>
+        <label for="reason">What are you applying for?</label>
+        <input type="text"  id="reason" name="reason" value="" placeholder="Medical reason (dental, check-up, vaccination ..etc)" required>
+ 
+        <br>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz927mM08JUnSf6tyPwhXQLaklmme_CQ4&libraries=places&callback=initAutocomplete" async defer></script>
+
+        <input type="submit" value="submit">
+      </div>
+    </form>
+<footer class="container-flex">
+         <p id="date"></p> kokatha aboriginal corporation
+            <p> Based up on https://www.kokatha.com.au/ </p>
+            <p>This is my own work as defined by the University's  Academic Misconduct policy</p>
+            
+        </footer>
+  </body>
+</html>

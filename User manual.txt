@@ -1,0 +1,11 @@
+in order to start the database and the UI
+At first User should start the database and client mode in that order 
+For this they could either use cmd or any other terminal we used visual code
+Once user databse is started 
+and once client mode is activated 
+UI can be used
+Page-01 inculdes the user agreement and method prefered by the user
+If it is online an user clicks agree user would be lead to index page where application form is included
+User can  fill the form an submit it 
+The form would be transfered to database in accordance of the member
+and the form can be approved or deleted in there 

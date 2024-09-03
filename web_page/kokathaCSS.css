@@ -1,0 +1,70 @@
+.jumbotron{
+
+background-color: #ff6600;
+}
+
+
+<style>
+
+h1 {
+  color: moccasin;
+}
+
+jump {
+ color: yellow
+}
+
+.jumbotron{
+
+background-color: #ff6600;
+}
+
+    .container{
+        padding: 16px;
+      }
+
+.jumbotron{
+
+background-color: #ff6600;
+}
+
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #ff6600;
+}
+
+.container{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+
+footer {
+    text-align: center;
+   /* padding: 3px;*/
+    background-color: #FFFFE0;
+    color: black;
+}
